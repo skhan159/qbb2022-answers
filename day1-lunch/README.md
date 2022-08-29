@@ -1,8 +1,11 @@
 # QBB2022 - Day 1 - Lunch Exercises Submission
 
  1. I’m excited to learn Python.
+
  2b. wc genes.chr21.bed gives 219 lines and wc exons.chr21.bed gives 13653 lines thus there are an average of 62 exons per gene using python to divide: 13653//219.
+
  2c. Figure out the amount of exons per gene by calculating where each gene starts and ends and the number of exons within the gene locuses, probably would require a python script.
+
  3b. cut -f 4 chromHMM.E116_15_coreMarks_hg38lift_stateno.chr21.bed | sort | uniq -c
  305 1
   17 10
@@ -19,7 +22,9 @@
 1050 7
  156 8
  654 9
+
  3c. 7 is the largest fraction using the result of above.
+
  4b. grep AFR integrated_call_samples.panel | cut -f 2 | sort | uniq -c
  123 ACB
  112 ASW
@@ -28,15 +33,21 @@
  122 LWK
  128 MSL
  206 YRI
+
 4c. replace AFR with the other populations
+
 5b. cut -f 1-9;13 random_snippet.vcf > HG00100.vcf
+
 5c. grep -v "#" HG00100.vcf | cut -f 10 | sort | uniq -c
 9514 0|0
  127 0|1
  178 1|0
  181 1|1
+
  5d.grep -v "#" HG00100.vcf | cut -f 8 | grep ";AF=1" | wc -l = 15
+
  5e. once
+
  5f. grep -v "#" HG00100.vcf | cut -f 8 | cut -f7 -d";"
  
  
