@@ -29,5 +29,14 @@
  128 MSL
  206 YRI
 4c. replace AFR with the other populations
-5
+5b. cut -f 1-9;13 random_snippet.vcf > HG00100.vcf
+5c. grep -v "#" HG00100.vcf | cut -f 10 | sort | uniq -c
+9514 0|0
+ 127 0|1
+ 178 1|0
+ 181 1|1
+ 5d.grep -v "#" HG00100.vcf | cut -f 8 | grep ";AF=1" | wc -l = 15
+ 5e. once
+ 5f. grep -v "#" HG00100.vcf | cut -f 8 | cut -f7 -d";"
+ 
  
