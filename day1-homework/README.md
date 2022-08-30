@@ -1,5 +1,5 @@
 # QBB2022 - Day 1 - Homework Exercises Submission
-#1.
+1.
 #!/bin/bash
 
 #USAGE: bash exercise1.sh input_VCF
@@ -31,12 +31,18 @@ Considering  T
 
 transitions are more likely than transversions
 
-2. not defined at all
-used vcffile=~/data/vcf_files/random_snippet.vcf
+2. 
+#not defined at all
+
+#used as a separate shell script:
+
+vcffile=~/data/vcf_files/random_snippet.vcf
 promofile=~/data/bed_files/chromHMM.E116_15_coreMarks_hg38lift_stateno.chr21.bed
 
 bedtools intersect -a $vcffile -b $promofile > intersect_out_e2.bed
-and then used the file result to feed:
+
+#and then used the file result from the top shell script to feed a second script:
+
 for nuc in C
 do
   echo "Considering " $nuc
@@ -44,4 +50,8 @@ do
 done
 
 
-3. cut -f 4 genes.sorted.bed | sort | uniq -c | wc = 19991
+3. 
+#first line removes headers from the vcf, prints only the first two columns (chromosome and start position). Bedtools closest requires BOTH lists to be sorted!
+#also requires tab delineation
+
+cut -f 4 genes.sorted.bed | sort | uniq -c | wc = 19991 unique genes, without sort and uniq 20017 variants, thus there is about 1 variant per gene.
