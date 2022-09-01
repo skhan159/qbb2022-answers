@@ -16,10 +16,10 @@ for i, line in enumerate( fs ):
 
 fig, ax = plt.subplots()
 ax.hist( ac, density=True )
-ax.set_yscale("log")
-ax.set_ylabel("Density")
-ax.set_xlabel("Allele counts")
-ax.set_title(vcf)
+ax.set_yscale("log") #set y to log 
+ax.set_ylabel("Density") #set y axis label to Density
+ax.set_xlabel("Allele counts") #set x axis label to Allele counts
+ax.set_title(vcf) #set graph title to file name
 fig.savefig( vcf + "improved.png" )
 
 fs.close()
