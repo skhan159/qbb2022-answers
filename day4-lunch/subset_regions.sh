@@ -9,7 +9,7 @@ then
     grep -w $CHR $GTF > $CHR.gtf
 fi
 
-for TYPE in protein_coding processed_pseudogene lncRNA
+for TYPE in protein_coding processed_pseudogene lncRNA #added lncRNA
 do
     echo "--- Creating $TYPE.$CHR.bed"
     grep $TYPE $CHR.gtf | awk 'BEGIN {OFS="\t"}{if ($3=="gene"){print $1, $4-1, $5}}' > $TYPE.$CHR.bed
