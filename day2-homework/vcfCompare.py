@@ -10,11 +10,17 @@ for snp in snps:
     if snp.startswith("#"): #removes header
         continue
     line = snp.rstrip().split() #strips and splits lines
-    tuple = (line[0], line[1]) #defines a tuple as the index 1 and 2 of lines
-    psnpsdict[tuple] = line[2]
+    tuplea = (line[0], line[1]) #defines a tuple as the index 1 and 2 of lines
+    psnpsdict[tuplea] = line[2] #ID as second value assigned to each key
 vcf = vcfParser.parse_vcf(genome)
-for i in range(0, 2, len(vcf)):
-    snpf = vcf[i]
-    candp.append(vcf[i]) #this is honestly where I got stuck, but I know I need to compare each key in the dictionary I made above
-                        #to the extracted index lines 0 and 1 from the parsed random_snipped.vcf file. 
-print(candp)
+i = [(x[0], x[1]) for x in vcf] #tuple comprehension?
+count = 0
+did_this_work = []
+for k in i:
+    if k in psnpsdict:
+        did_this_work.append("YES")
+        count = + 1
+    else:
+        did_this_work.append("NO")
+        count = + 1
+print(did_this_work) #this entire block is my attempt to debug why this specific code was not matching the list of keys I had generated with the keys in the dictonary. This is as far as I got
