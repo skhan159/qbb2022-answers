@@ -49,9 +49,27 @@ do
   awk -v awkvar="$nuc" '/^#/{next} {if ($4 == awkvar) {print $5}}' $1 | sort | uniq -c
 done
 
+awk by itself without sort and uniq -c returns a large list of nucleotides, but after sorting and uniq -c then we get:
+470 A
+ 382 G
+2094 T
+
+indicating that for nucleotide C, transitions between C and T are favored (due to the fact they are both pyrimidines).
 
 3. 
 #first line removes headers from the vcf, prints only the first two columns (chromosome and start position). Bedtools closest requires BOTH lists to be sorted!
 #also requires tab delineation
 
-cut -f 4 genes.sorted.bed | sort | uniq -c | wc = 19991 unique genes, without sort and uniq 20017 variants, thus there is about 1 variant per gene.
+to do so:
+
+#!/bin/bash
+
+#USAGE: bash exercise3.sh input_VCF
+
+awk '/^#/{next} BEGIN{OFS="\t"} {print $1,$2-1, $2}' $1 | sort -k1,1 -k2,2n > variants.bed
+sort -k1,1 -k2,2n ~/data/bed_files/genes.bed > genes.sorted.bed
+bedtools closest -a variants.bed -b genes.sorted.bed
+
+then:
+
+cut -f 4 genes.sorted.bed | sort | uniq -c | wc = 19991 unique genes, without sort and uniq (basically wc -l) 20017 variants, thus there is about 1 variant per gene.
