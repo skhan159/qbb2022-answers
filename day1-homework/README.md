@@ -72,4 +72,4 @@ bedtools closest -a variants.bed -b genes.sorted.bed
 
 then:
 
-cut -f 4 genes.sorted.bed | sort | uniq -c | wc = 19991 unique genes, without sort and uniq (basically wc -l) 20017 variants, thus there is about 1 variant per gene.
+cut -f 4 genes.sorted.bed | sort | uniq -c | wc -l = 19991 unique genes, without sort and uniq (basically wc -l on genes.sorted.bed) 20017 variants, thus there is about 1 variant per gene.
