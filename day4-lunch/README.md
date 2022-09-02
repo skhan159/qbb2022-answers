@@ -220,3 +220,6 @@ miRNA - microRNA! does it have any secondary structure and what does it look lik
          - import the vcf results and split each feature from its respective AC using a for loop in python, save to a list
          - using matplotlib.pyplot, plot the histogram that results using allele counts as x and density as y
          - save each iteration over each feature of interest as a separate graph.png
+OUTPUT
+for each <feature_of_interest>:
+<feature_of_interest>.<chromosome>.bed.vcf.png
