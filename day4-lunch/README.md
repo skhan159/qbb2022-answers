@@ -197,3 +197,26 @@ lncRNA -  does this mean, long non-coding RNA and if so, does it work in cis or 
 unprocessed_pseudogene - is this in a transposon?
 miRNA - microRNA! does it have any secondary structure and what does it look like?
 
+2. lcnRNAs appear to have higher allele variants than other components of the genome. conversely, the processed pseudogenes appear to have lower allele variants than other components in the genome.
+
+3. SYNOPSIS
+     bxlab/cmdb-plot-vcfs -- A shell script that can assign allele counts from a vcf file a feature of interest extracted from a gtf file
+
+ USAGE
+     bash do_all.sh <vcf_file> <gtf_file>
+
+ DEPENDENCIES
+ bedtools, matplotlib
+
+ DESCRIPTION
+     1. Create .bed files for features of interest
+         - Run subset_regions.sh Bash script
+         - Use grep to search for each feature of interest within the gtf file
+         - Use awk to print the chromosome, location, and the feature name of the feature of interest to a bed file
+     2. subset .vcf files for the allele count or AC data and assign it to each feature using bedtools
+         - for loop over the vcf file to extract each type AC using bedtools sort and merge
+         - then use bedtools intersect to match each type with its respective AC and save to a vcf file
+     3. plot the density of allele counts for each feature
+         - import the vcf results and split each feature from its respective AC using a for loop in python, save to a list
+         - using matplotlib.pyplot, plot the histogram that results using allele counts as x and density as y
+         - save each iteration over each feature of interest as a separate graph.png
