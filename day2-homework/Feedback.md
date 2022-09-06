@@ -1,0 +1,3 @@
+# Feedback day2-homework
+
+Overall, this all looks pretty good. Your comments for the VCF parser are clear and mostly corrrect. One spot that was incorrect was after checking that field 8 was present, the parser then goes through fields 9+ and splits each of them as well, since they all have the same layout as field 8. In your script for relabeling the SNP IDs, you were very close to the correct answer. The one bug that you hadn't found yet was that the SNP parser returns the position as an int, while when you loaded it into your dictionary, it was a string. Otherwise the code would have worked. You seem to be getting the concepts and appear fairly comfortable with using the concepts we learned in your scripts. Keep up the good work!
