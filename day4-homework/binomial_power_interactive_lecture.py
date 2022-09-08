@@ -88,7 +88,7 @@ def compute_power2(tosses = numpy.array([10, 50, 100, 250, 500, 1000]), probs = 
     arr = numpy.zeros((len(probs), len(tosses))) #create array with selections above
     for i, prob in enumerate(probs):
         for j, toss in enumerate(tosses): #nested for loop iteration through each toss count and probability count matching each prob with each toss
-            power = run_experiment(prob, toss, correct_the_pvalues=False) #call run_experiment
+            power = run_experiment(prob, toss, correct_the_pvalues=False) #call run_experiment, correct_the_pvalues can be modified here to True to run the experiment and output the values with multiple hypothesis correction to the power variable.
             arr[i, j] = power #set array to be equal to the power result indexes from the nested for loop
     return(arr)
 
@@ -101,5 +101,5 @@ ax = sns.heatmap(matrix, vmin = 0, vmax = 1, cmap = "viridis", xticklabels = tos
 ax.set_ylabel("probablility of heads")
 ax.set_xlabel("number of flips")
 ax.set_title("Coin Flip Simulation of Power")
-fig.savefig("coin_flip_uncorrected.png")
+fig.savefig("coin_flip_uncorrected.png") #this was changed to "corrected" when correct_the_pvalues within compute_power2 was set at True
 
