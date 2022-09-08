@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
 import statsmodels.stats.weightstats as smw
 
-df = np.genfromtxt("the_final_final.txt", delimiter=" ", dtype=None, encoding=None, names=["proband_ID", "paternal_age", "maternal_age", "paternal_mutations", "maternal_mutations"])
+df = np.genfromtxt("the_final_final.txt", delimiter=" ", dtype=None, encoding=None, names=["proband_ID", "paternal_age", "maternal_age", "maternal_mutations", "paternal_mutations"])
 # fig, ax = plt.subplots()
 # ax.scatter(df["maternal_age"], df["maternal_mutations"], alpha = 0.5, label = "Mothers")
 # ax.scatter(df["paternal_age"], df["paternal_mutations"], alpha = 0.5, label = "Fathers")
@@ -23,7 +23,7 @@ df = np.genfromtxt("the_final_final.txt", delimiter=" ", dtype=None, encoding=No
 # ax.set_title("Paternal and Maternal de novo mutations")
 # fig.savefig("ex2_c.png")
 
-# model = smf.ols(formula = "paternal_mutations ~ 1 + paternal_age", data = df)
+# model = smf.ols(formula = "maternal_mutations ~ 1 + maternal_age", data = df)
 # results = model.fit()
 # print(results.summary())
 
