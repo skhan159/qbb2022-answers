@@ -24,11 +24,20 @@ for i in effect:
         effect_dictionary[i] = 1
 reads = [int(d) for d in reads if d != '.']
 qual = [float(d) for d in qual if d != '.']
-allele = [float(d) for d in qual if d != '.']
+allele = [float(d) for d in allele if d != '.']
 
 fig, ax = plt.subplots(ncols=2,nrows=2)
 ax[0,0].hist(reads)
+ax[0,0].set_xlabel("Loci")
+ax[0,0].set_ylabel("reads per locus")
 ax[1,0].hist(qual)
+ax[1,0].set_xlabel("Loci")
+ax[1,0].set_ylabel("quality score per locus")
 ax[0,1].hist(allele)
-ax[1,1].bar(effect_dictionary, effect_dictionary.keys())
-plt.show()
+ax[0,1].set_xlabel("Loci")
+ax[0,1].set_ylabel("Allele frequency per locus")
+ax[1,1].bar(*zip(*effect_dictionary.items()))
+ax[1,1].set_xlabel("Strength of effect")
+ax[1,1].set_ylabel("Number per strength")
+fig.tight_layout()
+fig.savefig("graphs.png")
