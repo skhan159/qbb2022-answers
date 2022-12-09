@@ -13,35 +13,35 @@ def simulation(start_freq, pop_size):
         list.append(freq)
     return (list)
 
-# allele=simulation(0.5, 1000)
+allele=simulation(0.5, 1000)
 
-# def plot(allele):
-#     x=range(len(allele))
-#     plt.plot(x, allele)
-#     plt.xlabel("generation")
-#     plt.ylabel("Allele frequency")
-#     plt.title("Allele freq of 0.5 and a population of 1000")
-#     plt.savefig("plot.png")
+def plot(allele):
+    x=range(len(allele))
+    plt.plot(x, allele)
+    plt.xlabel("generation")
+    plt.ylabel("Allele frequency")
+    plt.title("Allele freq of 0.5 and a population of 1000")
+    plt.savefig("plot.png")
 
-# plot(allele)
+plot(allele)
 
-# runs = []
-# for i in range(1000):
-#     runs.append(len(simulation(0.5,100)))
-#
-# plt.hist(runs)
-# plt.xlabel("# generations to fixation")
-# plt.ylabel("Count")
-# plt.savefig("plot2.png")
+runs = []
+for i in range(1000):
+    runs.append(len(simulation(0.5,100)))
 
-# time = []
-# x = [100, 1000, 10000, 100000, 1000000, 10000000]
-# for j in x:
-#     time.append(len(simulation(0.5, j)))
-# plt.plot(x, time)
-# plt.xlabel("population")
-# plt.ylabel("time to fix")
-# plt.savefig("plot3.png")
+plt.hist(runs)
+plt.xlabel("# generations to fixation")
+plt.ylabel("Count")
+plt.savefig("plot2.png")
+
+time = []
+x = [100, 1000, 10000, 100000, 1000000, 10000000]
+for j in x:
+    time.append(len(simulation(0.5, j)))
+plt.plot(x, time)
+plt.xlabel("population")
+plt.ylabel("time to fix")
+plt.savefig("plot3.png")
 
 df = {'alfreq': [], 'fixtimes': []}
 fix_time_df = pd.DataFrame(df)
