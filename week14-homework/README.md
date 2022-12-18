@@ -1,6 +1,21 @@
-python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492197.kraken SRR492197 #rinse and repeat
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492183.kraken SRR492183
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492186.kraken SRR492186
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492188.kraken SRR492188
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492189.kraken SRR492189
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492190.kraken SRR492190
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492193.kraken SRR492193
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492194.kraken SRR492194
+python script.py metagenomics_data/step0_givendata/KRAKEN/SRR492197.kraken SRR492197
 
-ktImportText -q SRR492193_krona.txt -o SRR492190.txt #rinse and repeat
+ktImportText -q SRR492183_krona.txt -o SRR492183.txt
+ktImportText -q SRR492186_krona.txt -o SRR492186.txt 
+ktImportText -q SRR492188_krona.txt -o SRR492188.txt 
+ktImportText -q SRR492189_krona.txt -o SRR492189.txt 
+ktImportText -q SRR492190_krona.txt -o SRR492190.txt 
+ktImportText -q SRR492193_krona.txt -o SRR492193.txt 
+ktImportText -q SRR492194_krona.txt -o SRR492194.txt 
+ktImportText -q SRR492197_krona.txt -o SRR492197.txt 
+
 
 Question 1: the microbiome is dominated by E. faecalis.
 
